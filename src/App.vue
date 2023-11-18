@@ -1,5 +1,7 @@
 <script>
 import axios from 'axios';
+import Card from './components/Card.vue';
+
 export default {
   name: 'App',
   data() {
@@ -8,6 +10,9 @@ export default {
       project_api: '/api/projects',
       projects: [],
     }
+  },
+  components: {
+    Card
   },
   methods: {
 
@@ -66,23 +71,11 @@ export default {
     <section class="projects">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
-          <div class="col" v-for="project in projects">
-            <div class="card h-100">
-              <div class="card-image-top text-center py-2">
-                <img width="100" :src="base_url + '/storage/' + project.cover_image" alt="">
-              </div>
-              <div class="card-body">
-                <div class="card-title">
-                  {{ project.title }}
-                </div>
-                <div class="card-text">
-                  {{ project.description }}
-                </div>
-              </div>
 
 
-            </div>
-          </div>
+          <Card v-for="project in projects" :project="project" :cover_image="project.cover_image"></Card>
+
+
         </div>
       </div>
     </section>
