@@ -73,7 +73,7 @@ export default {
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
 
 
-          <Card v-for="project in projects" :project="project" :cover_image="project.cover_image"></Card>
+          <Card v-for="project in projects" :project="project"></Card>
 
 
         </div>
