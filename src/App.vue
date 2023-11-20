@@ -1,6 +1,5 @@
 <script>
 import axios from 'axios';
-import ProjectList from './components/ProjectList.vue';
 import Navbar from './components/Navbar.vue';
 
 export default {
@@ -16,7 +15,6 @@ export default {
     }
   },
   components: {
-    ProjectList,
     Navbar
   },
 
