@@ -58,9 +58,26 @@ export default {
 </script>
 <template>
     <div>
-        <h1>ProjectsPage</h1>
+
         <section class="projects" v-if="projects">
             <div class="container">
+                <h1 class="mb-5">ProjectsPage</h1>
+
+                <div class="my-4">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination my-4">
+                            <li class="page-item" v-for="link in this.links" :class="link.active ? 'active' : ''">
+                                <!-- use v-for and v-bind on html to paginate the results -->
+                                <a class="page-link" role="button" aria-label="Previous" v-html="link.label"
+                                    @click="getProjects(link.url)">
+
+                                </a>
+                            </li>
+
+                        </ul>
+                    </nav>
+                </div>
+
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
 
                     <div class="col" v-for="project in projects">
@@ -74,6 +91,7 @@ export default {
                     <nav aria-label="Page navigation">
                         <ul class="pagination my-4">
                             <li class="page-item" v-for="link in this.links" :class="link.active ? 'active' : ''">
+                                <!-- use v-for and v-bind on html to paginate the results -->
                                 <a class="page-link" role="button" aria-label="Previous" v-html="link.label"
                                     @click="getProjects(link.url)">
 
@@ -83,6 +101,8 @@ export default {
                         </ul>
                     </nav>
                 </div>
+
+
             </div>
         </section>
         <div class="my-3" v-else>

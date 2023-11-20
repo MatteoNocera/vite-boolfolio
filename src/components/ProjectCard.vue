@@ -30,10 +30,33 @@ export default {
       </div>
       <div class="card-text">
         Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span>
+
+        <!-- TODO Stamp type -->
+        <!--  <div class="type my-2" v-if="project.type = null">
+          Type: <span class="fw-bold text-light-emphasis">None</span>
+
+        </div>
+        <div v-else>
+          Type: <span class="fw-bold text-light-emphasis">{{ project.type.name }}</span>
+        </div> -->
+        <div class="technologies">
+          Technologies:
+          <div class="row row-cols-3 g-2 mt-2">
+
+            <div class="col px-0 text-center" v-for="technology in project.technologies">
+              <span class="badge bg-secondary">{{ technology.name }}</span>
+            </div>
+
+          </div>
+        </div>
+
+
       </div>
+
 
     </div>
     <div class="card-footer d-flex justify-content-end bg-secondary bg-gradient align-items-center gap-4">
+
       <a class="btn btn-outline-dark" :href="project.web_link" target="_blank" rel="noopener noreferrer">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg"
           viewBox="0 0 16 16">
