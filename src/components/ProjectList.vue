@@ -7,25 +7,36 @@ export default {
       base_url: 'http://127.0.0.1:8000',
       project_api: '/api/projects',
       projects: null,
+
+
+      currentPage: '',
+      lastPage: '',
     }
   },
   methods: {
 
-    getProjects() {
-      const url = this.base_url + this.project_api;
+    getProjects(projectApiPage) {
+      this.loading = true;
+      /* const url = this.base_url + this.project_api; */
 
       axios
-        .get(url)
-        /* .get(`${this.base_url}` + `${this.project_api}`, {
+        /* .get(url) */
+        .get(`${this.base_url}` + `${this.project_api}`, {
           params: {
-            page: this.currentPage
+            page: projectApiPage
           }
-        }) */
+        })
         .then(response => {
           console.log(response);
-          this.projects = response.data.result;
-          /* this.currentPage = response.data.result.current_page;
-          this.lastPage = response.data.result.last_page; */
+          //tutti i risultati
+          //this.projects = response.data.result;
+
+          //console.log(response.data.result);
+          this.projects = response.data.result.data;
+          this.currentPage = response.data.result.current_page;
+          this.lastPage = response.data.result.last_page;
+
+          /* this.loading = false */
         })
         .catch(err => {
           console.error(err);

@@ -12,8 +12,7 @@ export default {
 
       projects: [],
 
-      currentPage: '',
-      lastPage: '',
+
     }
   },
   components: {
