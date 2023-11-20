@@ -32,7 +32,7 @@ export default {
 
   <main class="py-4">
 
-    <ProjectList></ProjectList>
+    <router-view></router-view>
 
   </main>
 
