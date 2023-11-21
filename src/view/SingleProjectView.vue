@@ -1,18 +1,24 @@
 <script>
 import axios from 'axios';
+import Loader from '../components/Loader.vue';
+import { state } from '../state.js';
 
 export default {
     name: 'SingleProjectView',
+    components: {
+        Loader
+    },
     data() {
         return {
+            state,
             project: {},
-            base_url: 'http://127.0.0.1:8000',
-            project_api: '/api/projects/',
+            /* base_url: 'http://127.0.0.1:8000',
+            project_api: '/api/projects/', */
             loading: true,
         }
     },
     mounted() {
-        const url = this.base_url + this.project_api + this.$route.params.slug;
+        const url = state.base_url + state.project_api + '/' + this.$route.params.slug;
         axios.get(url)
             .then(resp => {
 
@@ -36,12 +42,8 @@ export default {
 <template>
     <div>
         <div class="container">
-            <h1>SingleProject</h1>
+            <h1> Project #<span class="fw-bold">{{ project.title }}</span></h1>
 
-            <!-- Imposto le immagini se NULL da loremPicsum, se no dò il percorso dal DB -->
-            <!--  <img v-if="project.cover_image != null" :src="base_url + '/storage/' + project.cover_image" class="img-fluid"
-                alt="">
-            <img v-else :src="'https://picsum.photos/200/200?random=' + project.id" class="img-fluid" alt=""> -->
 
             <div class="card mb-3 shadow-lg bg-dark text-white" v-if="!loading">
 
@@ -49,7 +51,7 @@ export default {
                     <div class="col-lg-5 text-center py-2">
 
                         <!-- Imposto le immagini se NULL da loremPicsum, se no dò il percorso dal DB -->
-                        <img v-if="project.cover_image != null" :src="base_url + '/storage/' + project.cover_image"
+                        <img v-if="project.cover_image != null" :src="state.base_url + '/storage/' + project.cover_image"
                             class="img-fluid" alt="">
                         <img v-else :src="'https://picsum.photos/200/200?random=' + project.id" class="img-fluid" alt="">
 
@@ -68,7 +70,7 @@ export default {
                                     {{ project.type ? project.type.name : 'None' }}
                                 </span></p>
 
-                            <div class="d-flex" v-if="project.technologies.lenght != 0">
+                            <div class="d-flex" v-if="project.technologies.length !== 0">
                                 <span class="text-white-50">Technologies: </span>
                                 <ul class="d-flex list-untyled gap-1 ps-2">
 
@@ -117,6 +119,10 @@ export default {
 
                 </div>
 
+            </div>
+
+            <div class="d-flex gap-2 align-items-center" v-else>
+                <Loader></Loader>
             </div>
 
         </div>

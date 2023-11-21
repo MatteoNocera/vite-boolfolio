@@ -1,22 +1,27 @@
 <script>
 import axios from 'axios';
 import ProjectCard from '../components/ProjectCard.vue';
+import Loader from '../components/Loader.vue';
+import { state } from '../state.js';
+
 export default {
     name: 'ProjectsView',
     data() {
         return {
-            base_url: 'http://127.0.0.1:8000',
-            project_api: '/api/projects',
+            state,
+            /* base_url: 'http://127.0.0.1:8000',
+            project_api: '/api/projects', */
             projects: [],
             links: [],
             currentPage: 1,
             lastPage: null,
+            loading: true,
         }
     },
 
     components: {
         ProjectCard,
-
+        Loader
     },
     methods: {
 
@@ -40,6 +45,7 @@ export default {
                     this.projects = response.data.result.data;
                     this.links = response.data.result.links;
                     this.lastPage = response.data.result.last_page;
+                    this.loading = false;
 
                     //this.loading = false;
                     //this.loading = false
@@ -51,7 +57,7 @@ export default {
 
     },
     mounted() {
-        this.getProjects(this.base_url + this.project_api);
+        this.getProjects(state.base_url + state.project_api);
 
     }
 }
@@ -59,9 +65,11 @@ export default {
 <template>
     <div>
 
-        <section class="projects" v-if="projects">
-            <div class="container">
-                <h1 class="mb-5">ProjectsPage</h1>
+
+        <div class="container">
+            <h1 class="mb-5">My Projects</h1>
+            <div v-if="!loading">
+
 
                 <div class="my-4">
                     <nav aria-label="Page navigation">
@@ -102,17 +110,15 @@ export default {
                     </nav>
                 </div>
 
-
             </div>
-        </section>
-        <div class="my-3" v-else>
-            Loading <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z" />
-                <path
-                    d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z" />
-            </svg>
+            <div class="my-3" v-else>
+                <Loader></Loader>
+            </div>
+
         </div>
+
+
+
 
     </div>
 </template>

@@ -17,6 +17,11 @@ export default {
 
 <template>
   <div class="card bg-dark text-white h-100">
+    <div class="card-header">
+      <div class="card-title">
+        Title: <span class="fw-bold text-light text-decoration-underline">{{ project.title }}</span>
+      </div>
+    </div>
     <div class="card-img-top text-center py-2">
 
       <!-- Imposto le immagini se NULL da loremPicsum, se no dò il percorso dal DB -->
@@ -25,12 +30,11 @@ export default {
       <img v-else :src="'https://picsum.photos/200/200?random=' + project.id" class="img-fluid" alt="">
 
     </div>
-    <div class="card-body">
-      <div class="card-title">
-        Title: <span class="fw-bold text-light text-decoration-underline">{{ project.title }}</span>
-      </div>
+    <div class="card-body d-flex align-items-end">
+
+
       <div class="card-text">
-        <!--  Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span> -->
+        Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span>
 
         <!-- TODO Stamp type -->
         <!--  <div class="type my-2" v-if="project.type = null">
@@ -42,13 +46,13 @@ export default {
         </div> -->
 
         <!-- TODO V-if no technology -->
-        <!-- <div class="technologies mt-3" v-if="project.technologies.lenght > 0">
+        <!-- <div class="technologies mt-3" v-if="project.technologies.length !== 0">
           <div>
 
             <p>Technologies:</p>
             <div class="row row-cols-3 g-2 mt-1">
 
-              
+
               <div class="col px-0 text-center" v-for="technology in project.technologies">
                 <span class="badge bg-secondary">{{ technology.name }}</span>
               </div>
