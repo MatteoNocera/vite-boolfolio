@@ -11,7 +11,7 @@ const routes = [
     { path: '/projects', component: ProjectsView },
     { path: '/about', component: AboutView },
     {
-        path: '/project/:slug',
+        path: '/projects/:slug',
         name: 'project',
         component: SingleProjectView
     },

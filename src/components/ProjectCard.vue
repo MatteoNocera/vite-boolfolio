@@ -7,6 +7,7 @@ export default {
     return {
       base_url: 'http://127.0.0.1:8000',
 
+
     }
   }
 
@@ -29,7 +30,7 @@ export default {
         Title: <span class="fw-bold text-light text-decoration-underline">{{ project.title }}</span>
       </div>
       <div class="card-text">
-        Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span>
+        <!--  Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span> -->
 
         <!-- TODO Stamp type -->
         <!--  <div class="type my-2" v-if="project.type = null">
@@ -39,17 +40,22 @@ export default {
         <div v-else>
           Type: <span class="fw-bold text-light-emphasis">{{ project.type.name }}</span>
         </div> -->
-        <div class="technologies mt-3">
-          Technologies:
-          <div class="row row-cols-3 g-2 mt-1">
 
-            <!-- TODO V-if no technology -->
-            <div class="col px-0 text-center" v-for="technology in project.technologies">
-              <span class="badge bg-secondary">{{ technology.name }}</span>
+        <!-- TODO V-if no technology -->
+        <!-- <div class="technologies mt-3" v-if="project.technologies.lenght > 0">
+          <div>
+
+            <p>Technologies:</p>
+            <div class="row row-cols-3 g-2 mt-1">
+
+              
+              <div class="col px-0 text-center" v-for="technology in project.technologies">
+                <span class="badge bg-secondary">{{ technology.name }}</span>
+              </div>
+
             </div>
-
           </div>
-        </div>
+        </div> -->
 
 
       </div>
