@@ -65,9 +65,20 @@ export default {
 <template>
     <div>
 
+        <div class="p-5 mb-4 bg-light">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">My Projects</h1>
+                <p class="col fs-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis explicabo
+                    vero beatae quo. Minima atque, quibusdam id blanditiis nobis minus architecto cum fugiat repellat.
+                    Incidunt temporibus id sint exercitationem iure.
+                </p>
+
+            </div>
+        </div>
 
         <div class="container">
-            <h1 class="mb-5">My Projects</h1>
+
             <div v-if="!loading">
 
 

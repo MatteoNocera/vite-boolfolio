@@ -3,6 +3,7 @@ import { createWebHashHistory, createRouter } from "vue-router";
 import HomeView from "./view/HomeView.vue";
 import ProjectsView from "./view/ProjectsView.vue";
 import AboutView from "./view/AboutView.vue";
+import ContactsView from "./view/ContactsView.vue";
 import SingleProjectView from "./view/SingleProjectView.vue";
 import NotFoundView from "./view/NotFoundView.vue";
 
@@ -22,6 +23,11 @@ const routes = [
         path: '/about',
         name: 'about',
         component: AboutView
+    },
+    {
+        path: '/contacts',
+        name: 'contacts',
+        component: ContactsView
     },
     {
         path: '/projects/:slug',
