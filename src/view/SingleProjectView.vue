@@ -28,6 +28,7 @@ export default {
                     this.loading = false;
                 } else {
                     console.log('Non trovata');
+                    this.$router.push({ name: 'NotFound' })
                 }
 
             })
