@@ -16,50 +16,50 @@ export default {
 </script>
 
 <template>
-  <div class="card bg-dark text-white h-100">
+  <div class="card bg-dark text-white h-100 shadow">
     <div class="card-header">
       <div class="card-title">
         Title: <span class="fw-bold text-light text-decoration-underline">{{ project.title }}</span>
       </div>
-    </div>
-    <div class="card-img-top text-center py-2">
+  </div>
+  <div class="card-img-top text-center py-2">
 
-      <!-- Imposto le immagini se NULL da loremPicsum, se no dò il percorso dal DB -->
-      <img v-if="project.cover_image != null" :src="base_url + '/storage/' + project.cover_image" class="img-fluid"
-        alt="">
+    <!-- Imposto le immagini se NULL da loremPicsum, se no dò il percorso dal DB -->
+    <img v-if="project.cover_image != null" :src="base_url + '/storage/' + project.cover_image" class="img-fluid"
+      alt="">
       <img v-else :src="'https://picsum.photos/200/200?random=' + project.id" class="img-fluid" alt="">
 
     </div>
-    <div class="card-body d-flex align-items-end">
+  <div class="card-body d-flex align-items-end">
 
 
-      <div class="card-text">
-        Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span>
+    <div class="card-text">
+      Description: <span class="fw-bold text-light-emphasis">{{ project.description }}</span>
 
-        <!-- TODO Stamp type -->
-        <!--  <div class="type my-2" v-if="project.type = null">
+      <!-- TODO Stamp type -->
+      <!--  <div class="type my-2" v-if="project.type = null">
           Type: <span class="fw-bold text-light-emphasis">None</span>
 
         </div>
         <div v-else>
           Type: <span class="fw-bold text-light-emphasis">{{ project.type.name }}</span>
-        </div> -->
+              </div> -->
 
         <!-- TODO V-if no technology -->
         <!-- <div class="technologies mt-3" v-if="project.technologies.length !== 0">
-          <div>
+                <div>
 
-            <p>Technologies:</p>
-            <div class="row row-cols-3 g-2 mt-1">
+                  <p>Technologies:</p>
+                  <div class="row row-cols-3 g-2 mt-1">
 
 
-              <div class="col px-0 text-center" v-for="technology in project.technologies">
-                <span class="badge bg-secondary">{{ technology.name }}</span>
-              </div>
+                    <div class="col px-0 text-center" v-for="technology in project.technologies">
+                      <span class="badge bg-secondary">{{ technology.name }}</span>
+                    </div>
 
-            </div>
-          </div>
-        </div> -->
+                  </div>
+                </div>
+              </div> -->
 
 
       </div>
