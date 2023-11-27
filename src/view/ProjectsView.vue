@@ -59,7 +59,7 @@ export default {
 }
 </script>
 <template>
-    <div>
+    <div class="bg-secondary">
 
         <div class="p-5 mb-4 jumbo shadow rounded-bottom-5">
             <div class="container-fluid py-5">
@@ -78,13 +78,13 @@ export default {
             <div v-if="!loading">
 
 
-                <div class="my-4">
+                <div class="py-4">
                     <nav aria-label="Page navigation">
                         <ul class="pagination my-4">
                             <li class="page-item" v-for="link in this.links" :class="link.active ? 'active' : ''">
                                 <!-- use v-for and v-bind on html to paginate the results -->
-                                <a class="page-link" role="button" aria-label="Previous" v-html="link.label"
-                                    @click="getProjects(link.url)">
+                                <a class="page-link bg-dark border-0" role="button" aria-label="Previous"
+                                    v-html="link.label" @click="getProjects(link.url)">
 
                                 </a>
                             </li>
@@ -102,13 +102,13 @@ export default {
 
 
 
-                <div class="my-4">
+                <div class="py-4">
                     <nav aria-label="Page navigation">
                         <ul class="pagination my-4">
                             <li class="page-item" v-for="link in this.links" :class="link.active ? 'active' : ''">
                                 <!-- use v-for and v-bind on html to paginate the results -->
-                                <a class="page-link" role="button" aria-label="Previous" v-html="link.label"
-                                    @click="getProjects(link.url)">
+                                <a class="page-link bg-dark border-0" role="button" aria-label="Previous"
+                                    v-html="link.label" @click="getProjects(link.url)">
 
                                 </a>
                             </li>
@@ -118,7 +118,7 @@ export default {
                 </div>
 
             </div>
-            <div class="my-3" v-else>
+            <div class="py-4" v-else>
                 <Loader></Loader>
             </div>
 

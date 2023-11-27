@@ -29,7 +29,7 @@ export default {
 
   </header>
 
-  <main class="min-vh-100 bg-light">
+  <main class="min-vh-100 bg-secondary">
 
     <router-view></router-view>
 
