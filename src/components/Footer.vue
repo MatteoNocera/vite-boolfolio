@@ -121,13 +121,13 @@ a {
             position: absolute;
             display: block;
             height: 12px;
-            width: 12px;
+            width: 0;
             border-radius: 12px;
             transform-origin: 6px 6px;
 
             animation-name: woosh;
             animation-duration: 1.5s;
-            animation-iteration-count: infinite;
+            animation-iteration-count: 4;
             animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
             animation-direction: alternate;
 
@@ -169,7 +169,7 @@ a {
                 transform-origin: 50% 80%;
                 animation-duration: 1s;
                 animation-timing-function: ease-out;
-                animation-iteration-count: infinite;
+                animation-iteration-count: 2;
                 margin-left: -15px;
                 border-width: 0 2.5px 5px 2.5px;
                 border-color: transparent transparent #42e599 transparent;
@@ -191,7 +191,7 @@ a {
                 animation-name: boom-disc;
                 animation-duration: 1s;
                 animation-timing-function: ease-out;
-                animation-iteration-count: infinite;
+                animation-iteration-count: 2;
             }
 
             &.circle {
@@ -200,7 +200,7 @@ a {
                 animation-name: boom-circle;
                 animation-duration: 1s;
                 animation-timing-function: ease-out;
-                animation-iteration-count: infinite;
+                animation-iteration-count: 2;
                 border-radius: 100%;
                 margin-left: -30px;
 
