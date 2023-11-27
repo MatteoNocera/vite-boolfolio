@@ -1,15 +1,69 @@
 <script>
-
+import axios from "axios";
 import { state } from "../state.js";
+import Sender from "../components/Sender.vue";
 
 export default {
     name: 'ContactsView',
+    components: {
+        Sender
+    },
     data() {
         return {
             state,
             loading: false,
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            errors: [],
+        }
+    },
+    methods: {
+        sendForm() {
+
+            this.loading = true;
+            const payload = {
+                name: this.name,
+                email: this.email,
+                phone: this.phone,
+                message: this.message
+            };
+            axios
+                .post(state.base_url + '/api/contacts', payload)
+                .then(response => {
+
+                    const success = response.data.success;
+
+                    if (success) {
+                        console.log(response);
+                        console.log(response.data.message);
+
+                        this.name = '';
+                        this.email = '';
+                        this.phone = '';
+                        this.message = '';
+
+                        this.success = response.data.message;
+
+                    } else {
+                        console.log(response);
+                        console.log(response.data.errors);
+                        this.errors = response.data.errors;
+
+                    }
+
+                    this.loading = false;
+
+
+                })
+                .catch(error => {
+                    console.log(error.message);
+                });
+
         }
     }
+
 
 }
 </script>
@@ -25,20 +79,20 @@ export default {
 
 
         <div class="container py-4">
-            <form action="">
+            <form action="" v-on:submit.prevent="sendForm()">
                 <div v-if="!loading">
                     <div class="mb-3">
                         <label for="name" class="form-label text-uppercase">Name</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="YourName"
-                            aria-describedby="nameHelper">
+                            aria-describedby="nameHelper" v-model="name">
                         <small id="nameHelper" class="text-muted">Type your name</small>
 
                     </div>
 
                     <div class="mb-3">
                         <label for="phone" class="form-label  text-uppercase">phone</label>
-                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="123456"
-                            aria-describedby="phoneHelper">
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder="33333333333"
+                            aria-describedby="phoneHelper" v-model="phone">
                         <small id="phoneHelper" class="text-muted">Type your phone</small>
 
                     </div>
@@ -46,7 +100,7 @@ export default {
                     <div class="mb-3">
                         <label for="email" class="form-label text-uppercase">email</label>
                         <input type="text" name="email" id="email" class="form-control" placeholder="name@example.com"
-                            aria-describedby="emailHelper">
+                            aria-describedby="emailHelper" v-model="email">
                         <small id="emailHelper" class="text-muted">Type your email</small>
 
                     </div>
@@ -54,9 +108,7 @@ export default {
                     <div class="mb-3">
                         <label for="message" class="form-label">Message</label>
                         <textarea class="form-control" name="message" id="message" rows="3"
-                            placeholder="Your message here...">
-
-                                          </textarea>
+                            placeholder="Your message here..." v-model="message"></textarea>
 
                     </div>
 
@@ -74,13 +126,8 @@ export default {
 
                     </button>
                 </div>
-                <div class="loader text-center py-5" v-else>
-
-                    <i class="fa-solid fa-spinner fa-spin-pulse fa-2xl"></i>
-                    <div class="mt-3">
-                        Loading...
-                    </div>
-
+                <div class="container py-3" v-else>
+                    <Sender></Sender>
                 </div>
 
             </form>
