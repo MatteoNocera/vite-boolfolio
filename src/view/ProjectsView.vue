@@ -31,11 +31,7 @@ export default {
 
             axios
                 .get(url)
-                /* .get(`${this.base_url}` + `${this.project_api}`, {
-                    params: {
-                        page: projectApiPage
-                    }
-                }) */
+
                 .then(response => {
                     console.log(response);
                     //tutti i risultati
@@ -65,7 +61,7 @@ export default {
 <template>
     <div>
 
-        <div class="p-5 mb-4 bg-light">
+        <div class="p-5 mb-4 jumbo shadow rounded-bottom-5">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">My Projects</h1>
                 <p class="col fs-4">
@@ -97,7 +93,7 @@ export default {
                     </nav>
                 </div>
 
-                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-5">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3">
 
                     <div class="col" v-for="project in projects">
                         <ProjectCard :project="project"></ProjectCard>

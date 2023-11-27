@@ -14,7 +14,7 @@ export default {
 }
 </script>
 <template>
-    <div class="p-5 mb-4 bg-light">
+    <div class="p-5 mb-4 jumbo shadow rounded-bottom-5">
         <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Get in touch</h1>
             <p class="col-md-8 fs-4">Find top news from top authors</p>
@@ -54,7 +54,7 @@ export default {
                     <label for="message" class="form-label">Message</label>
                     <textarea class="form-control" name="message" id="message" rows="3" placeholder="Your message here...">
 
-              </textarea>
+                      </textarea>
 
                 </div>
 

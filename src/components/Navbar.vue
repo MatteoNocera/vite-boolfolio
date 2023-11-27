@@ -13,7 +13,12 @@ export default {
 <template>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#">BoolFolio</a>
+            <router-link to="/" class="navbar-brand" aria-current="page">
+                <!--  Logo -->
+
+                <img style="max-width: 80px;" src="../img/Logo.png" alt="Matteo Nocera Logo" class="img-fluid rounded-3">
+
+            </router-link>
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                 aria-label="Toggle navigation">

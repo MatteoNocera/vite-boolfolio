@@ -42,8 +42,9 @@ export default {
 
 <template>
     <div>
+        <h1 class="p-5 mb-4 jumbo shadow rounded-bottom-5"> Project: <span class="fw-bold">{{ project.title }}</span>
+        </h1>
         <div class="container">
-            <h1> Project #<span class="fw-bold">{{ project.title }}</span></h1>
 
 
             <div class="card mb-3 shadow-lg bg-dark text-white" v-if="!loading">

@@ -1,6 +1,7 @@
 <script>
 import axios from 'axios';
 import Navbar from './components/Navbar.vue';
+import Footer from './components/Footer.vue';
 
 
 export default {
@@ -15,7 +16,8 @@ export default {
     }
   },
   components: {
-    Navbar
+    Navbar,
+    Footer,
   },
 
 }
@@ -27,14 +29,14 @@ export default {
 
   </header>
 
-  <main class="">
+  <main class="min-vh-100 bg-light">
 
     <router-view></router-view>
 
   </main>
 
   <footer>
-
+    <Footer></Footer>
   </footer>
 </template>
 
