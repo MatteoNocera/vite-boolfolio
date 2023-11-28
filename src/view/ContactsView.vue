@@ -73,8 +73,9 @@ export default {
         <div class="p-5 mb-4 jumbo shadow rounded-bottom-5">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Get in touch</h1>
-                <p class="col-md-8 fs-4">Find top news from top authors</p>
-                <button class="btn btn-outline-secondary btn-lg" type="button">Find out more</button>
+                <p class="col-md-8 fs-4">Quacktastic news! I'm just a quack away, ready to dive into any questions,
+                    suggestions, or just to share a virtual pond moment. Ducklings and developers alike, let's waddle into
+                    the world of web together! 🦆💻</p>
             </div>
         </div>
 
