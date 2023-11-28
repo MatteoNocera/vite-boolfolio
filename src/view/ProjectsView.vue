@@ -65,9 +65,11 @@ export default {
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">My Projects</h1>
                 <p class="col fs-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis explicabo
-                    vero beatae quo. Minima atque, quibusdam id blanditiis nobis minus architecto cum fugiat repellat.
-                    Incidunt temporibus id sint exercitationem iure.
+                    Welcome to my digital playground, where coding dreams take flight and bugs are just friendly critters in
+                    the code jungle. 🚀 Here, you'll find a collection of my junior full-stack wizardry—each project a tale
+                    of triumph, lessons learned, and maybe a few epic battles with stubborn bugs. So, grab a virtual snack,
+                    kick back, and let's embark on this coding adventure together! Ready to be amazed (or at least mildly
+                    entertained)? Let the scrolling commence! 💻✨
                 </p>
 
             </div>
