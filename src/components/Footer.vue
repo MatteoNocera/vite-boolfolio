@@ -29,7 +29,7 @@ export default {
 
 
     </div>
-    <footer class="bg-dark p-5 text-white">
+    <footer class="bg-dark pt-5 px-5 text-white">
         <div class="container">
             <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
                 <!--  Logo -->
@@ -75,6 +75,9 @@ export default {
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div class="text-center text-white-50">
+                &copy; Matteo Nocera - All rights reserved
             </div>
         </div>
 
